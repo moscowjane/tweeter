@@ -21,80 +21,85 @@ var data = [
     },
     "created_at": 1461116232227
   },
-
 ];
 
-// // loops through tweets
-// // calls createTweetElement for each tweet
-// // takes return value and appends it to the tweets container
-function renderTweets(tweets) {
+function createTweetElement(tweet) {
+  var $tweet = `
+          <article class="tweet">
+             <header>
+                <img class="logo" src="${tweet.user.avatars.small}">
+                <span class="name" >"${tweet.user.name}"</span>
+                <span class="handle">"${tweet.user.handle}"</span>
+                <div class ="clear-fix" ></div>
+            </header>
+            <div class="tweet-body">${tweet.content.text}</div>
+            <footer> 10 days ago
 
-for (let tweet of tweets) {
-
-let tweetElement = createTweetElement(tweet);
-$(tweetElement).appendTo('.tweet-container');
-
-}
-
-    // $('#tweets-container').empty();
-    // for(let tweets in data) {
-    //   let tweets = data[handleId];
-    //   let handle = $('<li>').text(data.type);
-    //   .done(() => {
-    //   const type = $tweets.find('data[user="type"]').val();
-    //   $('#tweets-container').append($data);
-    // }
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <i class="fa fa-retweet" aria-hidden="true"></i>
+                <i class="fa fa-flag" aria-hidden="true"></i>
+            </footer>
+          </article>
+  `;
+    return $tweet;
   }
 
-// var $tweet = createTweetElement(tweetData);
-
-function createTweetElement(tweet) {
-
-var $tweet = `
-   <article class="tweet">
-           <header>
-              <img class="logo" src="${tweet.user.avatars.small}">
-              <span class="name" >"${tweet.user.name}"</span>
-              <span class="handle">"${tweet.user.handle}"</span>
-              <div class ="clear-fix" ></div>
-          </header>
-          <div class="tweet-body">${tweet.content.text}</div>
-          <footer> 10 days ago
-
-              <i class="fa fa-heart" aria-hidden="true"></i>
-              <i class="fa fa-retweet" aria-hidden="true"></i>
-              <i class="fa fa-flag" aria-hidden="true"></i>
-          </footer>
-        </article>
-`;
-
-  return $tweet;
-}
 
 function handleNewTweet(event) {
-    event.preventDefault();
-    const $form = $(this);
-    // console.log($form.serialize());
-    // how do we handle this?
-    $.ajax({
-      type: 'POST',
-      url:  '/tweets',
-      data: $form.serialize()
-      // data: { type: $('input#type').val() }
-      // data: `type=${$('input#type').val()}`
-    })
-      // .done(fetchCoffees)
+  event.preventDefault();
+  const $form = $(this);
+  const msg = $(".new-tweet textarea").val();
+  if (msg.length === 0)
+    $('.error-message').text('Your message is empty')
+  else if(msg.length > 140)
+    $('.error-message').text('Your message exceeds the allowable maximum of 140 characters')
+  else
+    $('.error-message').text('')
+ $.ajax({
+    type: 'POST',
+    url:  '/tweets',
+    data: $form.serialize()
+  })
+  .success(() => {
+    loadTweets();
+    console.log('tweet posted successfully');
+  })
+   .error(err => {
+    console.log("no tweet posted");
+  });
+}
 
-    .success(() => {
+function loadTweets(){
 
-      console.log('successful');
+  // const $form = $(this);
+ $.ajax({
+    type: 'GET',
+    url:  '/tweets',
+  })
+  .success((tweets) => {
+    renderTweets(tweets);
+    console.log('tweet loaded');
+  })
+   .error(err => {
+    console.log("tweet not loaded");
+  });
+}
 
-    })
-    .error(err => alert(err));
+function renderTweets(tweets) {
+  $('.tweet-container').empty();
+  for (let tweet of tweets) {
+    let tweetElement = createTweetElement(tweet);
+    $('.tweet-container').prepend(tweetElement);
   }
-
-
-$(document).ready(()=>{
-  const $form = $('form');
-  $form.on('submit', handleNewTweet);
+}
+$(() => {
+  loadTweets();
+  $('form').submit(handleNewTweet);
+  $("button").click(function(){
+    $(".new-tweet").toggle(1000);
+  });
+  $("button").click(function() {
+    $("textarea").focus();
+  });
 });
+
