@@ -9,33 +9,35 @@
 */
 
 html {
+
   box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
+
 }
 
-/*
- * Global layout stuff
- */
+*, *:before, *:after {
+
+  box-sizing: inherit;
+
+}
 
 body {
+
   margin: 0;
   color: #244751;
   background-color: #eee;
   font-family: 'Roboto Condensed', sans-serif;
   height: 100vh;
+
 }
 
-
-
 main {
-    width: 450px;
-    text-align: center;
-    background-color: #FFFFFF;
-    margin: 80px auto 0;
-    height: inherit;
-    padding: 2em 2em 2em;
+
+  width: 450px;
+  text-align: center;
+  background-color: #FFFFFF;
+  margin: 80px auto 0;
+  height: inherit;
+  padding: 2em 2em 2em;
 
 }
 
