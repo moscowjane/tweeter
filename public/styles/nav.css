@@ -4,58 +4,54 @@
  * Do not modify these two selectors, please
  */
 
-/*
-* have font apply to everything - browser degrade to sans-serif if correct font cannot be loadeds
-*/
-
-
-
-
-
-
 
 #nav-bar {
-  top: 0;
-  padding-right: 2em;
-  padding-left: 2em;
-  background-color: #00a087;
-  height: 80px;
-  width: 100%;
-  color: #e8fdff;
-  position: fixed;
-  z-index: 1;
+
+top: 0;
+padding-right: 2em;
+padding-left: 2em;
+background-color: #00a087;
+height: 80px;
+width: 100%;
+color: #e8fdff;
+position: fixed;
+display: flex;
+z-index: 1;
+
 }
 
-    /*Be fixed to the top.
-        Tip: add a bunch of empty or placeholder lines or paragraphs to the body so you can see how it behaves when you scroll vertically.
-    height: ;
-    Be the full width of the viewport.
+.header {
 
+margin-top: 20px;
+font-size: 200%;
+color: inherit;
 
-    Nav-bar inner spacing
- *Task 2: Fix content behind the nav
-
-Once you follow the tip above, you'll realize that the content within the main element is being clipped by the fixed header.
-How can you push it down (say 140px), again with only a CSS change to the main element?*/
-
-#nav-bar .header {
-  float: left;
-  margin-top: 20px;
-  font-size: 200%;
-  /* padding-left: 10px; */
-  color: inherit;
 }
-
-
-
-
 
 #nav-bar .logo {
-  float: left;
-  height:80px;
-  width: 80px;
-  margin-right: 10px;
 
+height:80px;
+width: 80px;
+margin-right: 10px;
 
-  /*should be 10px away from header*/
 }
+
+#nav-bar .Compose {
+
+margin-left: auto;
+height: 67px;
+align-self: center;
+width: 98px;
+border-radius: 5px;
+border: 1px solid black;
+
+}
+
+.Compose:hover {
+
+opacity: 1;
+color: #00a087;
+
+}
+
+
