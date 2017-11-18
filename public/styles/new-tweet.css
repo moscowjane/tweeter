@@ -2,130 +2,126 @@
 
 .new-tweet {
 
-    background-color: #eee;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    padding:1em;
-}
-
-.new-tweet textarea{
-
-    width: 100%;
-}
-
-.new-tweet .counter{
-
-    display: block;
-    text-align: end;
-    font-style: italic;
+background-color: #eee;
+border: 1px solid lightgray;
+border-radius: 5px;
+padding:1em;
 
 }
 
-.new-tweet input{
+.new-tweet textarea {
 
-    float: left;
+width: 100%;
+
 }
 
-.new-tweet h2{
+.new-tweet .counter {
 
-    text-decoration: underline;
-    text-align: left;
+display: block;
+text-align: end;
+font-style: italic;
+
+}
+
+.new-tweet input {
+
+float: left;
+
+}
+
+.new-tweet h2 {
+
+text-decoration: underline;
+text-align: left;
+
 }
 
 .tweet-container {
 
-    border: 1px solid lightgray;
-    height: 143px;
-    background-color: white;
-    margin-top: 10px;
-    border-radius: 5px;
+border: 1px solid lightgray;
+height: 143px;
+background-color: white;
+margin-top: 10px;
+border-radius: 5px;
 
 }
 
 .tweet header{
 
-    background-color: #eee;
-    height: 50px;
-    padding: 8px;
+background-color: #eee;
+height: 50px;
+padding: 8px;
 
 }
 
-.tweet .logo{
+.tweet .logo {
 
-    float: left;
-    height: 40px;
-    width: 40px;
-    padding-left: 6px;
+float: left;
+height: 40px;
+width: 40px;
+padding-left: 6px;
+
 }
 
-.clear-fix{
+.clear-fix {
 
-    clear: both;
+clear: both;
 
 }
 
 
 .name {
 
-    float: left;
-    padding: 0.5em;
-    margin-top: -4px;
+float: left;
+padding: 0.5em;
+margin-top: -4px;
 
 }
 
 .handle {
 
-    float: right;
-    font-size: small;
-    padding-left: 190px;
-    margin-top: 10px;
+float: right;
+font-size: small;
+padding-left: 190px;
+margin-top: 10px;
 
 }
 
 article.tweet{
 
-    /*height: 65px;*/
-    text-align: left;
-    background-color: white;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    margin-bottom: 15px;
+text-align: left;
+background-color: white;
+border: 1px solid lightgray;
+border-radius: 5px;
+margin-bottom: 15px;
 }
 
-.tweet-body{
+.tweet-body {
 
-    height: 64px;
-    padding: 8px;
-}
-
-.tweet footer{
-
-    background-color: white;
-    text-align: left;
-    font-size: small;
-    padding: 5px;
-    border-top: 1px solid lightgray;
+height: 64px;
+padding: 8px;
 
 }
 
-article.tweet i{
+.tweet footer {
+
+background-color: white;
+text-align: left;
+font-size: small;
+padding: 5px;
+border-top: 1px solid lightgray;
+
+}
+
+article.tweet i {
 
 opacity: 0;
 transition: 300ms;
 float: right;
 
-
 }
 
-/*article.tweet i:first-of-type{
-
-padding-left: 18em;
-
-
-}*/
-
-
-article.tweet:hover i{
+article.tweet:hover i {
 
 opacity: 1;
 color: teal;
