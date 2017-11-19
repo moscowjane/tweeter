@@ -1,9 +1,3 @@
-/*
-//  * Client-side JS logic goes here
-//  * jQuery is already loaded
-//  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
-//  */
-
 
 var data = [
   {
@@ -18,7 +12,7 @@ var data = [
     },
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
+      },
     "created_at": 1461116232227
   },
 ];
@@ -26,7 +20,7 @@ var data = [
 function createTweetElement(tweet) {
   var $tweet = `
           <article class="tweet">
-             <header>
+            <header>
                 <img class="logo" src="${tweet.user.avatars.small}">
                 <span class="name" >"${tweet.user.name}"</span>
                 <span class="handle">"${tweet.user.handle}"</span>
